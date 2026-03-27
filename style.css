@@ -862,6 +862,6 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
 /* MOBILE SCROLL OFFSET FIX */
 @media (max-width: 850px) {
   section {
-    scroll-margin-top: 140px;
+    scroll-margin-top: 160px;
   }
 }
