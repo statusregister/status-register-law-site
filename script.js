@@ -69,15 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || "Network error");
-      }
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Network error");
+    }
 
-      // Success UI
-      form.style.display = "none";
-      if (successMessage) successMessage.style.display = "block";
+    // Success UI
+    form.style.display = "none";
+    if (successMessage) successMessage.style.display = "block";
+    
+    // Wipe the form data clean so the browser doesn't cache it on reload
+    form.reset();
+    
+    // Reset the Turnstile widget behind the scenes just in case
+    if (typeof turnstile !== 'undefined') turnstile.reset();
 
-    } catch (err) {
+  } catch (err) {
       alert(`Error: ${err.message}. Please try again or email us directly.`);
       // Reset button so they can try again
       submitBtn.innerText = originalBtnText;
