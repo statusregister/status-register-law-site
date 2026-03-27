@@ -862,10 +862,10 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
 /* MOBILE ANCHOR OFFSET FIX */
 @media (max-width: 850px) {
   html {
-    scroll-padding-top: 170px;
+    scroll-padding-top: 140px;
   }
 
   section {
-    scroll-margin-top: 170px;
+    scroll-margin-top: 140px;
   }
 }
