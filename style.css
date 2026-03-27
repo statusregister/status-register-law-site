@@ -447,30 +447,34 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 850px) {
-  nav { 
-    flex-direction: column; 
-    gap: 20px; 
-    padding: 15px; 
-  }
+nav {
+  flex-direction: column;
+  gap: 16px;
+  padding: 15px 12px;
+}
 
-  .logo-group { 
-    flex-direction: column; 
-    gap: 15px; 
-  }
+.logo-group {
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
 
-  .main-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 18px;
-  }
+.main-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+  width: 100%;
+  justify-items: center;
+}
 
-  .main-nav a {
-    font-size: 0.95rem;
-  }
+.main-nav a {
+  font-size: 0.95rem;
+  text-align: center;
+}
 
-  .nav-cta { 
-    margin-left: 0; 
-  }
+.nav-cta {
+  margin-left: 0;
+}
 
   .split { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
