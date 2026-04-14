@@ -127,7 +127,7 @@ nav {
 #how-it-works {
   padding: 96px 0 104px;
   background: white;
-  scroll-margin-top: 110px;
+  scroll-margin-top: 120px;
 }
 
 /* SECTION INTRO — FINAL POLISH */
@@ -261,8 +261,15 @@ nav {
 }
 
 /* SERVICES & PRICING CARDS */
-#services { padding: 100px 0; scroll-margin-top: 110px}
+#services { padding: 100px 0; scroll-margin-top: 120px}
 h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+.services-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 800px;    /* Keeps the text from stretching too wide */
+  margin-left: auto;   /* Centers the block itself */
+  margin-right: auto;  /* Centers the block itself */
+}
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
 .card { 
@@ -334,7 +341,7 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
     background: #2d3748;
     color: white;
     padding: 120px 0;
-    scroll-margin-top: 110px;
+    scroll-margin-top: 120px;
   }
   
   .split {
@@ -465,12 +472,6 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
     text-align: center;
   }
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
 .logo-img {
   display: block;
   margin: 0 auto;
@@ -516,7 +517,7 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
 #contact {
     padding: 120px 0;
     background: #f7fafc;
-    scroll-margin-top: 110px;
+    scroll-margin-top: 120px;
   }
   
   .contact-intro {
@@ -857,15 +858,4 @@ h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
   border-radius: 8px;
   padding: 16px 18px;
   color: #2d3748;
-}
-
-/* MOBILE ANCHOR OFFSET FIX */
-@media (max-width: 850px) {
-  html {
-    scroll-padding-top: 140px;
-  }
-
-  section {
-    scroll-margin-top: 140px;
-  }
 }
