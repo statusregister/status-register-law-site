@@ -405,27 +405,6 @@
             <p><strong>THIS WEBSITE IS ATTORNEY ADVERTISING.</strong> Prior results do not guarantee a similar outcome. Nothing on this website is legal advice, your use of this site does not create an attorney-client relationship, and you should not send confidential information through this website unless and until a formal engagement has been established. Status Register Law is a trade name of Neal Hayes. &copy; 2026 Status Register Law. All rights reserved.</p>
         </div>
     </footer>
-<script>
-  const nav = document.querySelector('.site-nav');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelectorAll('#primary-navigation a');
-
-  if (nav && navToggle) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-    });
-
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Open menu');
-      });
-    });
-  }
-</script>
 <script src="script.js"></script>
 </body>
 </html>
