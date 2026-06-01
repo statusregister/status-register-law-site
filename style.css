@@ -62,7 +62,9 @@ nav {
 .main-nav a { color: var(--slate-700); font-weight: 800; font-size: 1.2rem; }
 .main-nav a:hover { color: var(--blue-600); }
 
-.mobile-nav-cta { display: none; }
+.main-nav .mobile-nav-cta {
+  display: none;
+}
 
 .nav-cta { margin-left: auto; }
 .btn-small { background: var(--blue-600); color: var(--white) !important; padding: 10px 20px; border-radius: 4px; font-weight: 600; }
