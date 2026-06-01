@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Mobile hamburger navigation
+  const nav = document.querySelector(".site-nav");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelectorAll("#primary-navigation a");
+
+  if (nav && navToggle) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav-open");
+
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
+
   const form = document.getElementById("contact-form");
   if (!form) return;
 
@@ -38,8 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Turnstile Token validation
     const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]')?.value;
     if (!turnstileResponse) {
-        alert("Please complete the security check.");
-        return;
+      alert("Please complete the security check.");
+      return;
     }
 
     // Update UI to show sending state
@@ -53,13 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
       email: emailField.value,
       topic: document.getElementById("topic").value,
       message: messageField.value,
-      company: honeypot ? honeypot.value : "", // Passes the honeypot data silently
+      company: honeypot ? honeypot.value : "",
       no_acr_acknowledgment: checkbox.checked ? checkbox.value : null,
       turnstileToken: turnstileResponse
     };
 
     try {
-      // REPLACE THIS STRING WITH YOUR AWS LAMBDA FUNCTION URL
       const response = await fetch("https://w2ksk7xmusho5dnn5b55ftfnom0trkjs.lambda-url.us-east-1.on.aws/", {
         method: "POST",
         headers: {
@@ -71,21 +92,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Network error");
-    }
+      }
 
-    // Success UI
-    form.style.display = "none";
-    if (successMessage) successMessage.style.display = "block";
-    
-    // Wipe the form data clean so the browser doesn't cache it on reload
-    form.reset();
-    
-    // Reset the Turnstile widget behind the scenes just in case
-    if (typeof turnstile !== 'undefined') turnstile.reset();
+      // Success UI
+      form.style.display = "none";
+      if (successMessage) successMessage.style.display = "block";
 
-  } catch (err) {
+      // Wipe the form data clean so the browser doesn't cache it on reload
+      form.reset();
+
+      // Reset the Turnstile widget behind the scenes just in case
+      if (typeof turnstile !== "undefined") turnstile.reset();
+
+    } catch (err) {
       alert(`Error: ${err.message}. Please try again or email us directly.`);
-      // Reset button so they can try again
       submitBtn.innerText = originalBtnText;
       submitBtn.disabled = false;
     }
